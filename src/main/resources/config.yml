@@ -1,0 +1,46 @@
+discord:
+  token: "PUT_YOUR_BOT_TOKEN_HERE"
+  chat_channel_id: "000000000000000000"
+  console_channel_id: "000000000000000000"
+  events_channel_id: "000000000000000000"
+  chat_webhook_url: ""  # optional; if set, MC->Discord chat uses per-player name/avatar
+
+formatting:
+  from_discord_prefix: "&b[DC]&r "
+  join: ":inbox_tray: **{name}** joined"
+  quit: ":outbox_tray: **{name}** left"
+  first_join: ":tada: **{name}** joined for the first time!"
+  advancement: ":sparkles: **{name}** made the advancement **{advancement}**"
+  discord_to_mc: "&b[DC]&r &7{tag}&r {user}: &f{message}"
+
+options:
+  relay_advancements: true
+  relay_first_joins: true
+  relay_console: true
+  sanitize_mentions: true
+  max_ingame_message_length: 256
+
+floodgate:
+  bedrock_tag: "&d[BE]&r "
+
+presence:
+  enabled: true
+  status: "ONLINE"         # ONLINE | IDLE | DO_NOT_DISTURB | INVISIBLE
+  activity:
+    type: "PLAYING"        # PLAYING | WATCHING | LISTENING | COMPETING | STREAMING
+    text: "Falcon SMP | /discord"
+    url: ""                # only for STREAMING
+
+dynamic_presence:
+  enabled: false
+  pattern: "Playing with {players} online"
+  interval_seconds: 60
+
+events:
+  embeds: true             # send embeds for events
+  render: "head"           # head | body (for event images)
+  advancement_card: true   # also send a banner image for advancements
+
+assets:
+  version: "1.21.5"        # mcasset.cloud version to fetch toast textures
+  render: "head"           # head | body used in the banner image

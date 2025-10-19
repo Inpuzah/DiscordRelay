@@ -27,24 +27,35 @@ public class Main extends JavaPlugin {
             return;
         }
 
+        // Listeners
         getServer().getPluginManager().registerEvents(new ChatListener(this, discord), this);
         getServer().getPluginManager().registerEvents(new JoinQuitListener(this, discord), this);
         getServer().getPluginManager().registerEvents(new AdvancementListener(this, discord), this);
 
+        // Attach console appender (no double start)
         if (cfg.getBoolean("options.relay_console", true)) {
             consoleAppender = new ConsoleRelayAppender("DiscordRelayConsole", discord::sendConsoleLine);
-            consoleAppender.start();
+            consoleAppender.attach(); // start + add to root + update
         }
 
         getLogger().info("DiscordRelay enabled.");
     }
 
+    public DiscordBridge getDiscord() {
+        return discord;
+    }
+
     @Override
     public void onDisable() {
+        // Use Bukkit JUL logger here (won’t route through our Log4j appender)
         getLogger().info("Shutting down DiscordRelay...");
 
-        // Stop console appender first
+        // 1) Detach appender so Log4j stops referencing it
         if (consoleAppender != null) {
+            try {
+                consoleAppender.detach();
+            } catch (Exception ignored) {}
+            // 2) Then stop it
             try {
                 consoleAppender.stop();
                 getLogger().info("Console appender stopped.");
@@ -53,7 +64,7 @@ public class Main extends JavaPlugin {
             }
         }
 
-        // Shutdown Discord connection gracefully
+        // 3) Close Discord connection last
         if (discord != null) {
             try {
                 discord.shutdown();

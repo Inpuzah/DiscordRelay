@@ -5,30 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8045dcb-c7ba-4a5b-aec4-0d4051e47393" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/discord/DiscordBridge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/discord/DiscordMessageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/discord/WebhookPoster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/image/AdvancementCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/listeners/AdvancementListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/listeners/ChatListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/listeners/JoinQuitListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/logs/ConsoleRelayAppender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/util/FloodgateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/util/Text.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/discord/DiscordBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/discord/DiscordBridge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/logs/ConsoleRelayAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/logs/ConsoleRelayAppender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,25 +71,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.discordRelay [build].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/PC Backup Win11/IdeaProjects/discordRelay",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Shane/IdeaProjects/discordRelay/src/main/java/com/inpuzah/Main.java",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.discordRelay [build].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PC Backup Win11/IdeaProjects/discordRelay&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Shane/IdeaProjects/discordRelay/src/main/java/com/inpuzah/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="discordRelay [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -142,6 +123,7 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
       </set>
     </attachedChunks>
   </component>
@@ -154,7 +136,8 @@
       <option name="presentableId" value="Default" />
       <updated>1758229478248</updated>
       <workItem from="1758229479264" duration="7189000" />
-      <workItem from="1760759916510" duration="782000" />
+      <workItem from="1760759916510" duration="4011000" />
+      <workItem from="1760812124406" duration="778000" />
     </task>
     <servers />
   </component>

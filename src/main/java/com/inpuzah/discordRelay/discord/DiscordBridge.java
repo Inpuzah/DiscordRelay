@@ -231,4 +231,8 @@ public class DiscordBridge {
         var ch = channel(consoleChannelId);
         if (ch != null) ch.sendMessage("```\n" + Text.trimForDiscordCode(line) + "\n```").queue();
     }
+
+    public JDA getJda() {
+        return jda;
+    }
 }

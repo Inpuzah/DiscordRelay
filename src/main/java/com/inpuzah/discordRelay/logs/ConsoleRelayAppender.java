@@ -9,50 +9,64 @@ import org.apache.logging.log4j.core.config.LoggerConfig;
 import org.apache.logging.log4j.core.config.Property;
 import org.apache.logging.log4j.core.layout.PatternLayout;
 
-public class ConsoleRelayAppender extends AbstractAppender {
-    private final java.util.function.Consumer<String> consumer;
+import java.util.function.Consumer;
 
-    // Keep references so we can detach later
+public class ConsoleRelayAppender extends AbstractAppender {
+    private volatile Consumer<String> consumer;
     private LoggerContext ctx;
     private Configuration config;
 
-    public ConsoleRelayAppender(String name, java.util.function.Consumer<String> consumer) {
-        super(name, null, PatternLayout.newBuilder().withPattern("%m").build(), false, Property.EMPTY_ARRAY);
+    public ConsoleRelayAppender(String name, Consumer<String> consumer) {
+        // ignoreExceptions=true prevents AppenderLoggingException from bubbling
+        super(name, null,
+                PatternLayout.newBuilder().withPattern("%m").build(),
+                /* ignoreExceptions = */ true,
+                Property.EMPTY_ARRAY);
         this.consumer = consumer;
     }
 
-    /** Attach this appender to the root logger. Call in onEnable(). */
+    /** Attach to root logger. Call during onEnable(). */
     public void attach() {
         ctx = (LoggerContext) LogManager.getContext(false);
         config = ctx.getConfiguration();
 
-        // start this appender exactly once
-        if (!isStarted()) {
-            start();
-        }
+        if (!isStarted()) start();
 
         config.addAppender(this);
         LoggerConfig root = config.getRootLogger();
         if (!root.getAppenders().containsKey(getName())) {
             root.addAppender(this, null, null);
         }
-        ctx.updateLoggers(); // make it live
+        ctx.updateLoggers();
     }
 
-    /** Detach from the root logger. Call before stop() in onDisable(). */
+    /** Detach from root logger. Call first thing in onDisable(). */
     public void detach() {
         if (ctx == null || config == null) return;
         LoggerConfig root = config.getRootLogger();
         if (root.getAppenders().containsKey(getName())) {
             root.removeAppender(getName());
         }
-        ctx.updateLoggers();               // propagate removal
-        config.getAppenders().remove(getName()); // drop from config map
+        ctx.updateLoggers();
+        config.getAppenders().remove(getName());
+    }
+
+    /** After detaching, make the consumer a no-op to avoid any late calls. */
+    public void mute() {
+        this.consumer = s -> {};
     }
 
     @Override
     public void append(LogEvent event) {
-        String msg = getLayout().toSerializable(event).toString();
-        consumer.accept(msg);
+        // Be extra defensive; never throw from here
+        try {
+            Consumer<String> c = this.consumer;
+            if (c != null) {
+                String msg = getLayout().toSerializable(event).toString();
+                c.accept(msg);
+            }
+        } catch (Throwable ignored) {
+            // swallow to avoid shutdown explosions
+        }
     }
 }

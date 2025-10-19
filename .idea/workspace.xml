@@ -7,9 +7,7 @@
     <list default="true" id="e8045dcb-c7ba-4a5b-aec4-0d4051e47393" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/discord/DiscordBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/discord/DiscordBridge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/logs/ConsoleRelayAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inpuzah/discordRelay/logs/ConsoleRelayAppender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +135,7 @@
       <updated>1758229478248</updated>
       <workItem from="1758229479264" duration="7189000" />
       <workItem from="1760759916510" duration="4011000" />
-      <workItem from="1760812124406" duration="778000" />
+      <workItem from="1760812124406" duration="2380000" />
     </task>
     <servers />
   </component>

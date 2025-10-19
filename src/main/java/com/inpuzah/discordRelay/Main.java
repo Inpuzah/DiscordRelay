@@ -27,15 +27,13 @@ public class Main extends JavaPlugin {
             return;
         }
 
-        // Listeners
         getServer().getPluginManager().registerEvents(new ChatListener(this, discord), this);
         getServer().getPluginManager().registerEvents(new JoinQuitListener(this, discord), this);
         getServer().getPluginManager().registerEvents(new AdvancementListener(this, discord), this);
 
-        // Attach console appender (no double start)
         if (cfg.getBoolean("options.relay_console", true)) {
             consoleAppender = new ConsoleRelayAppender("DiscordRelayConsole", discord::sendConsoleLine);
-            consoleAppender.attach(); // start + add to root + update
+            consoleAppender.attach(); // start + add + update
         }
 
         getLogger().info("DiscordRelay enabled.");
@@ -47,33 +45,30 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Use Bukkit JUL logger here (won’t route through our Log4j appender)
-        getLogger().info("Shutting down DiscordRelay...");
+        // From here on, AVOID Bukkit/Paper logging once the appender is detached.
+        System.out.println("[DiscordRelay] Shutting down...");
 
-        // 1) Detach appender so Log4j stops referencing it
         if (consoleAppender != null) {
             try {
+                // 1) Detach so Log4j forgets about our appender
                 consoleAppender.detach();
-            } catch (Exception ignored) {}
-            // 2) Then stop it
+                // 2) Mute consumer in case any late events slip in
+                consoleAppender.mute();
+            } catch (Throwable ignored) {}
+
             try {
+                // 3) Now safe to stop; no appends, no exceptions
                 consoleAppender.stop();
-                getLogger().info("Console appender stopped.");
-            } catch (Exception e) {
-                getLogger().warning("Error stopping console appender: " + e.getMessage());
-            }
+            } catch (Throwable ignored) {}
         }
 
-        // 3) Close Discord connection last
         if (discord != null) {
             try {
                 discord.shutdown();
-                getLogger().info("Discord connection closed gracefully.");
-            } catch (Exception e) {
-                getLogger().warning("Error shutting down Discord: " + e.getMessage());
-            }
+            } catch (Throwable ignored) {}
         }
 
-        getLogger().info("DiscordRelay disabled.");
+        // Final message direct to stdout to avoid Log4j entirely
+        System.out.println("[DiscordRelay] Stopped.");
     }
 }
